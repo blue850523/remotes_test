@@ -137,14 +137,14 @@ export default {
             if (res.status === 200) {
               this.country_list = res.data;
               this.$refs.pagination.set_pagination(this.country_list.length);
-
-              console.log(this.country_list);
             }
           })
           .catch((err) => {
             console.log(err);
             this.$message.error("查無相關資料");
             this.country_list = [];
+            this.show_country_list = [];
+            this.$refs.pagination.set_pagination(0);
           });
 
         loading.close();
@@ -233,6 +233,7 @@ body {
         a {
           color: #1cb8ff;
           text-decoration: underline;
+          cursor: pointer;
         }
       }
       .table_title {

@@ -77,8 +77,6 @@ export default {
     open_modal(data) {
       this.show_modal = true;
       this.data = data;
-
-      console.log(data);
     },
     close_modal() {
       this.show_modal = false;

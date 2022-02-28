@@ -50,7 +50,7 @@ export default {
         coatOfArms: "國徽",
         continents: "大陸",
         currencies: "幣種",
-        fifa: "fifa",
+        fifa: "FIFA",
         flag: "旗幟",
         flags: "國旗",
         idd: "國際電話區號",
@@ -126,10 +126,12 @@ export default {
         return arr.join(", <br/>");
       } else if (["currencies", "translations"].indexOf(key) !== -1) {
         let arr = [];
-        Object.values(this.data[key]).forEach((it) => {
+        Object.values(this.data[key]).forEach((it, index) => {
+          let arr2 = [];
           Object.keys(it).forEach((it2) => {
-            arr.push(`${it2}: ${it[it2]}`);
+            arr2.push(`${it2}: ${it[it2]}`);
           });
+          arr.push(`${Object.keys(this.data[key])[index]}(${arr2.join(", ")})`);
         });
         return arr.join(", <br/>");
       } else if (

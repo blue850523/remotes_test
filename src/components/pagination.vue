@@ -96,6 +96,7 @@ export default {
 <style lang="scss" scoped>
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   .page_item {
     display: flex;
     align-items: center;

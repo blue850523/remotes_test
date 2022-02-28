@@ -212,6 +212,7 @@ body {
     .header {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
       .search_area {
         display: flex;
         align-items: center;

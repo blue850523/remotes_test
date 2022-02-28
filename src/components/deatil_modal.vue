@@ -87,6 +87,13 @@ export default {
     },
     get_text(key) {
       if (
+        typeof this.data[key] === "object" &&
+        Object.keys(this.data[key]).length === 0
+      ) {
+        return "";
+      }
+
+      if (
         [
           "altSpellings",
           "borders",

@@ -2,6 +2,9 @@
 使用Vue和ElementUI實做國家目錄
 API來源: https://restcountries.com/
 
+## DEMO
+https://blue850523.github.io/remotes_test/
+
 ## 需求
 - 目錄必須顯示欄位,()内為Api資料物件的屬性
   - 國旗(圖片資源請使用 flags裡面的PNG)

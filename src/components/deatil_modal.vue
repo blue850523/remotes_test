@@ -2,7 +2,7 @@
   <div class="deatil_modal">
     <el-dialog
       title="國家資訊"
-      width="80%"
+      width="800px"
       top="5vh"
       :visible.sync="show_modal"
       :close-on-click-modal="false"

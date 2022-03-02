@@ -28,36 +28,38 @@
             <el-col :span="3">國際電話區號</el-col>
           </el-row>
         </div>
-        <div class="table_body" ref="table_body">
-          <el-row
-            class="data_row"
-            v-for="(it, index) in show_country_list"
-            :key="`country_${index}`"
-          >
-            <el-col :span="4">
-              <img :src="it.flags.png" />
-            </el-col>
-            <el-col :span="4">
-              <a @click="more_info(it)">{{ it.name.official }}</a>
-            </el-col>
-            <el-col :span="3">
-              {{ it.cca2 }}
-            </el-col>
-            <el-col :span="3">
-              {{ it.cca3 }}
-            </el-col>
-            <el-col :span="4">
-              {{ show_language(it.name.nativeName) }}
-            </el-col>
-            <el-col :span="3">
-              {{ it.altSpellings.join(", ") }}
-            </el-col>
-            <el-col :span="3">
-              {{ it.idd.root ? "root: " + it.idd.root : "" }}
-              <br />
-              {{ it.idd.suffixes ? "suffixes: " + it.idd.suffixes : "" }}
-            </el-col>
-          </el-row>
+        <div class="table_responsive">
+          <div class="table_body" ref="table_body">
+            <el-row
+              class="data_row"
+              v-for="(it, index) in show_country_list"
+              :key="`country_${index}`"
+            >
+              <el-col :span="4">
+                <img :src="it.flags.png" />
+              </el-col>
+              <el-col :span="4">
+                <a @click="more_info(it)">{{ it.name.official }}</a>
+              </el-col>
+              <el-col :span="3">
+                {{ it.cca2 }}
+              </el-col>
+              <el-col :span="3">
+                {{ it.cca3 }}
+              </el-col>
+              <el-col :span="4">
+                {{ show_language(it.name.nativeName) }}
+              </el-col>
+              <el-col :span="3">
+                {{ it.altSpellings.join(", ") }}
+              </el-col>
+              <el-col :span="3">
+                {{ it.idd.root ? "root: " + it.idd.root : "" }}
+                <br />
+                {{ it.idd.suffixes ? "suffixes: " + it.idd.suffixes : "" }}
+              </el-col>
+            </el-row>
+          </div>
         </div>
       </div>
 
@@ -199,13 +201,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  margin: 0;
-  padding: 0;
-}
 #app {
   .container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
     padding: 10px;
+    height: 100vh;
     .title {
       font-weight: bold;
     }
@@ -227,6 +229,10 @@ body {
       }
     }
     .table_area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 900px;
       .el-col {
         padding: 5px 10px;
         text-align: center;
@@ -242,15 +248,26 @@ body {
         font-weight: bold;
         background-color: #ecf5ff;
       }
-      .table_body {
-        height: calc(100vh - 180px);
-        min-height: 200px;
-        overflow-y: scroll;
-        img {
-          width: 100%;
-        }
-        .data_row {
-          border-bottom: 2px solid #eeeeee;
+      .table_responsive {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        .table_body {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          overflow-y: scroll;
+          img {
+            width: 100%;
+          }
+          .data_row {
+            border-bottom: 2px solid #eeeeee;
+          }
         }
       }
     }

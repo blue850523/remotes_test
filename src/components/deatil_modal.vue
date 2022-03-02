@@ -3,6 +3,7 @@
     <el-dialog
       title="國家資訊"
       width="80%"
+      top="5vh"
       :visible.sync="show_modal"
       :close-on-click-modal="false"
       :close-on-press-escape="false"

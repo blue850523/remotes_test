@@ -48,7 +48,7 @@
                 {{ it.cca3 }}
               </el-col>
               <el-col :span="4">
-                {{ show_language(it.name.nativeName) }}
+                {{ show_language(it.languages) }}
               </el-col>
               <el-col :span="3">
                 {{ it.altSpellings.join(", ") }}
@@ -174,14 +174,13 @@ export default {
     more_info(data) {
       this.$refs.deatil_modal.open_modal(data);
     },
-    show_language(nativeName) {
+    show_language(languages) {
       let arr = [];
-      if (nativeName) {
-        Object.values(nativeName).forEach((it) => {
-          arr.push(it.official);
+      if (languages) {
+        Object.keys(languages).forEach((it) => {
+          arr.push(`${it}: ${languages[it]}`);
         });
       }
-
       return arr.join(", ");
     },
     scroll_to_top() {
